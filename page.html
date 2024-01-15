@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <style>
+        #convert{
+            height:200px;
+            width:400px;
+            background-color: rgb(81, 81, 179);
+            position:relative;
+            top:100px;
+            border-radius: 30px;
+            border:solid 2px black;
+        }
+
+        input[type=text]:hover{
+            background-color: cornflowerblue;
+        }
+
+        select:hover{
+            background-color: cornflowerblue;
+        }
+
+    </style>
+</head>
+<body background="./temperature.jpg">
+    <center>
+        <div id="convert">
+        <form id="conversionForm">
+            <table border="0%">
+                <tr>
+                    <td>Input</td>
+                    <td><input type="text" id="n" required/></td>
+                </tr><br/><br/>
+                <tr>
+                    <td>
+                    <select id="s">
+                        <option value="c">celsius</option>
+                        <option value="f">farenheint</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><input type="submit" id="s" onclick="convertTemperature()" value="Convert"/></td>
+                    <td><input type="reset" id="s"  value="cancel"/></td>
+                </tr>
+                <tr>
+                   <td> <p id="result"></p></td>
+                </tr>
+            </table>
+        </form>
+        </div>
+    
+        
+    </center>
+    
+
+    <script>
+        function convertTemperature() {
+           
+            var input = document.getElementById('n').value;
+            var input1 = document.getElementById('s').value;
+            var result;
+            if(input==NaN){
+                document.getElementById('result').innerHTML="enter valid number"; 
+            }
+            if(input1=='c'){
+                result=(9/5*input)+32;
+            }
+            else if(input1=='f'){
+                result=5/9*(input-32);
+            }
+            document.getElementById('result').innerHTML="result:"+result;
+            
+            
+            
+        }
+    </script>
+</body>
+</html>
